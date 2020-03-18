@@ -396,7 +396,7 @@ int main(int argc, char *argv[])
 			glBindVertexArray(vao);
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, tex);
-			glDrawArrays(GL_TRIANGLES, 0, mesh.size());
+			glDrawArrays(GL_TRIANGLES, 0, static_cast<GLsizei>(mesh.size()));
 			glBindVertexArray(0);
 			glUseProgram(0);
 
@@ -431,6 +431,10 @@ int main(int argc, char *argv[])
 			glfwSwapBuffers(w);
 			i++;
 		}
+
+		glDeleteBuffers(1, &vbo);
+		glDeleteFramebuffers(1, &fbo);
+		glDeleteVertexArrays(1, &vao);
 
 		glfwTerminate();
 	}
