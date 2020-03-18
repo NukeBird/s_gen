@@ -1,0 +1,15 @@
+[requires]
+assimp/5.0.1
+glfw/3.3.2@bincrafters/stable
+glew/2.1.0@bincrafters/stable
+glm/0.9.9.5@g-truc/stable
+stb/20180214@conan/stable
+
+[generators]
+cmake
+
+[imports]
+./res/bindings, imgui_impl_glfw.cpp -> ./bindings
+./res/bindings, imgui_impl_opengl3.cpp -> ./bindings
+./res/bindings, imgui_impl_glfw.h -> ./bindings
+./res/bindings, imgui_impl_opengl3.h -> ./bindings
