@@ -243,12 +243,12 @@ int main(int argc, char *argv[])
 
 		GLuint vao = 0;
 
-		glCreateVertexArrays(1, &vao);
+		glGenVertexArrays(1, &vao);
 		glBindVertexArray(vao);
 
 		GLuint vbo = 0;
 
-		glCreateBuffers(1, &vbo);
+		glGenBuffers(1, &vbo);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo);
 		glBufferData(GL_ARRAY_BUFFER, mesh.size() * sizeof(Vertex), mesh.data(), GL_STATIC_DRAW);
 
@@ -343,7 +343,7 @@ int main(int argc, char *argv[])
 
 		std::cout << "Framebuffer size: " << fb_w << "x" << fb_h << std::endl;
 
-		glCreateFramebuffers(1, &fbo);
+		glGenFramebuffers(1, &fbo);
 		glBindFramebuffer(GL_FRAMEBUFFER, fbo);
 		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_TEXTURE_2D, depth_tex, 0);
 		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, color_tex, 0);
